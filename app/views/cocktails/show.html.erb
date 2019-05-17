@@ -1,4 +1,10 @@
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://www.alagoas24horas.com.br/wp-content/uploads/2019/02/Caipirinha.jpg)">
+<% if @cocktail.photo.url.nil? %>
+  <% photo = image_url 'https://images.unsplash.com/photo-1495808921907-1599ab4d6801?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80' %>
+<% else %>
+  <% photo = cl_image_url(@cocktail.photo) %>
+<% end %>
+
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= photo %>)">
   <h1><%= @cocktail.name %></h1>
 </div>
 
@@ -11,9 +17,9 @@
 </div>
 
 <div class="button-container">
-<%= link_to "back to cocktails' list",  cocktails_path, :class => "btn btn-primary m-3" %>
+<%= link_to "back to cocktails' list",  cocktails_path, :class => "btn btn-warning m-3" %>
 <br>
-<%= link_to "add an ingredient",  new_cocktail_dose_path(@cocktail), :class => "btn btn-success m-3" %>
+<%= link_to "add an ingredient",  new_cocktail_dose_path(@cocktail), :class => "btn btn-primary m-3" %>
 <br>
 
 </div>
