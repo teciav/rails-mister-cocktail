@@ -1,11 +1,19 @@
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://www.alagoas24horas.com.br/wp-content/uploads/2019/02/Caipirinha.jpg)">
+  <h1><%= @cocktail.name %></h1>
+</div>
 
-  <h2><%= @cocktail.name %></h2>
 
-<% @cocktail.doses.each do |dose| %>
-  <li><%= dose.ingredient.name%> : <%= dose.description %> <%= link_to 'delete', cocktail_dose_path(@cocktail), method: :delete, data: { confirm: "REALLY !?!" } %></li>
+<div class="ingredients-container">
+  <h1> Ingredients: </h1>
+  <% @cocktail.doses.each do |dose| %>
+  <p><%= dose.ingredient.name%> : <%= dose.description %> <a> <%= link_to 'delete', cocktail_dose_path(@cocktail, dose), method: :delete, data: { confirm: "REALLY !?!" } %></a></p>
   <% end %>
+</div>
 
-<%= link_to "back to cocktails' list",  cocktails_path, :class => "btn btn-primary" %>
+<div class="button-container">
+<%= link_to "back to cocktails' list",  cocktails_path, :class => "btn btn-primary m-3" %>
 <br>
-<%= link_to "add an ingredient",  new_cocktail_dose_path(@cocktail), :class => "btn btn-success" %>
+<%= link_to "add an ingredient",  new_cocktail_dose_path(@cocktail), :class => "btn btn-success m-3" %>
+<br>
 
+</div>

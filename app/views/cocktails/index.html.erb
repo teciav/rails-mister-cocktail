@@ -1,14 +1,9 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1495808921907-1599ab4d6801?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80);">
-  <div class="container">
+  <div class="banner-container">
     <% @cocktails.each do |cocktail| %>
       <p><%= link_to cocktail.name, cocktail_path(cocktail)%></p>
        <br>
    <% end %>
-    <%= button_to 'Add a new cocktail',  new_cocktail_path, :class => "btn btn-primary", :method => :get %>
+    <%= button_to 'Add a new cocktail',  new_cocktail_path, :class => "btn btn-warning", :method => :get %>
   </div>
 </div>
-
-
-
-
-
